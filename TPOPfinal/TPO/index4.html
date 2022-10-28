@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>/Contacto</title>
+    <script src="/app.js" defer></script>
+    <script src="https://kit.fontawesome.com/336315074f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="menu">
+        <div class="logo"><a href="index.html"><img src="../img/Logo 2 (fondo transparente) .png" alt="Asociación Argentina de Kinesiología en Salud Mental" width="90" height="90"></a></div>
+        <ul class="menu_items">
+            <li class="active"><a href="/index.html">Inicio</a></li>
+            <li><a href="/index2.html">Sobre nosotros</a></li>
+            <li><a href="/index3.html">Mesas de trabajo</a></li>
+            <li><a href="/index4.html">Contacto</a></li>
+        </ul>
+        <span class="btn_menu">
+            <i class="fa fa-bars"></i>
+        </span>
+    </nav>
+
+    
+    <div class="content">
+
+        <h1 class="titulo"> <img src="/img/Logo 2 200x200.png" alt=""></h1>
+
+        <div class="fondo">
+            <div class="contact-form">
+                <h3>Contactanos</h3>
+                <form action="https://formspree.io/f/mqkjbeno" method="POST">
+                    <p>
+                        <label>Nombre completo</label>
+                        <input type="text" name="Nombre completo">
+                    </p>
+                    <p>
+                        <label>Correo electrónico</label>
+                        <input type="email" name="email">
+                    </p>
+                    <p>
+                        <label>Teléfono</label>
+                        <input type="tel" name="Teléfono">
+                    </p>
+                    <p>
+                        <label>Asunto</label>
+                        <input type="text" name="Asunto">
+                    </p>
+                    <p class="block">
+                        <label>Mensaje</label>
+                        <textarea name="mensaje" rows="3"></textarea>
+                    </p>
+                    <p class="block">
+                    <button type="submit">
+                        ENVIAR
+                    </button> 
+                    </p>               
+                </form>
+            </div>
+
+            
+            <div class="contact-info">
+                <h4>Más información</h4>
+                <ul>
+                    <p>Seguinos en nuestra redes y enterate de todas las novedades</p>
+                    <li><i class="fa-solid fa-envelope-open-text">aakisameweb@gmail.com</i></li>
+                    <li><a href="https://www.instagram.com/kinesioarg.saludmental/?hl=es-la" target="_blank"><i class="fa-brands fa-instagram">@kinesioarg.saludmental</i></a></li>
+                    <p>Asociación Argentina de Kinesiología en Salud Mental</p>
+                </ul>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <p>Asociación Argentina de Kinesiología en Salud Mental</p>
+            <a href="/index4.html">Contacto</a>
+        </div>
+        <div class="grupo-2">
+            <small>&COPY; 2022 <b>AAKISAME</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>    
+
+   
+
+    <script>
+        const $form = document.querySelector('#form')
+
+        $form.addEventListener('submit', handleSubmit)
+
+        function handleSubmit(event) {
+            event.privenDefault()
+            const form = new FormData(this)
+            const response = await fetch(this.action, { 
+                method: this.method,
+                body: form,
+                headers: {
+                    'Accept': 'application/json'
+            }
+        })
+        if (response.ok) {
+            $form.reset()
+            alert('Gracias por contactarnos')
+        }
+        }
+    </script>
+</body>
+</html>
